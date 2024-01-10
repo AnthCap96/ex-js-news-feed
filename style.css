@@ -1,0 +1,68 @@
+.bg-personalizated {
+    --bs-bg-opacity: 1;
+    background-color: #023047 !important;
+  }
+  .form-select-modified {
+    --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    display: block;
+    width: 50%;
+    padding: 6px 36px 6px 12px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: var(--bs-body-bg);
+    background-image: var(--bs-form-select-bg-img),
+      var(--bs-form-select-bg-icon, none);
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px 12px;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .button-save {
+    cursor: pointer;
+  }
+  
+  .btn-green {
+    background-color: green;
+    border-color: green;
+    color: white;
+    cursor: default;
+  }
+  
+  .btn-blue {
+    background-color: blue;
+    border-color: blue;
+    color: white;
+    cursor: default;
+  }
+  
+  .btn-purple {
+    background-color: purple;
+    border-color: purple;
+    color: white;
+    cursor: default;
+  }
+  .btn-orange {
+    background-color: orange;
+    border-color: orange;
+    color: white;
+    cursor: default;
+  }
+  .btn-yellow {
+    background-color: rgb(216, 216, 2);
+    border-color: rgb(216, 216, 2);
+    color: white;
+    cursor: default;
+  }
+  
+  .btn-disabled {
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+  }
