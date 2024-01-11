@@ -3,34 +3,34 @@ const articles = [
     {
       title: "Scoperta di una nuova specie di papera di gomma",
       author: "Diana Rossi",
-      date: "10/01/2023",
+      date: "11/02/2023",
       description:
         "Un breve articolo sulla recente scoperta di una specie di papera di gomma mai vista prima.",
       image: "rubber-duck.jpg",
       type: ["geo","tech"],
     },
     {
+      title: "Esplorando le profondità marine: il mistero degli abissi",
+      author: "Fabio Mari",
+      date: "14/03/2023",
+      description:
+        "Un viaggio nelle profondità dell'oceano alla scoperta di creature misteriose e inesplorate.",
+      image: "deep-sea.jpg",
+      type: ["travel" , "geo" ],
+    },
+    {
       title: "Viaggio culinario: alla ricerca dei sapori perduti",
       author: "Marco Bianchi",
-      date: "20/02/2023",
+      date: "20/04/2023",
       description:
         "Esplorazione di tradizioni culinarie dimenticate e la ricerca di sapori autentici.",
       image: "kitchen-food.jpg",
       type: ["cooking"],
-    },
-    {
-      title: "Esplorando le profondità marine: il mistero degli abissi",
-      author: "Alessandra Marino",
-      date: "10/03/2023",
-      description:
-        "Un viaggio nelle profondità dell'oceano alla scoperta di creature misteriose e inesplorate.",
-      image: "deep-sea.jpg",
-      type: ["travel"],
-    },
+    },   
     {
       title: "Arte moderna: oltre i confini convenzionali",
       author: "Gabriele Neri",
-      date: "05/04/2023",
+      date: "29/05/2023",
       description:
         "Un'analisi delle tendenze e delle sfide nell'arte contemporanea, con interviste a artisti emergenti.",
       image: "modern-art.jpg",
