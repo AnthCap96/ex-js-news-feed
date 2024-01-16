@@ -40,25 +40,51 @@ const articles = [
   
  //FUNCIONS
   let saved_articles = [];
+
+  document.addEventListener("DOMContentLoaded", ciclo)
   
   function ciclo() {
     const type = document.getElementById("selected").value;
+    const checkbox = document.getElementById("check_saved_articles")
     let local_articles = articles;
-  
+
+    if (checkbox.checked) {
     if (type) {
-      local_articles = local_articles.filter((article) =>
-        article.type.includes(type)
+      const saved_type = saved_articles.filter((sav_art) =>
+      sav_art.type.includes(type)
       );
-    }
-  
-    display_articles(local_articles);
+      display_articles(saved_type);
+  } else {
+    display_articles(saved_articles);
+  } return;
   }
- 
+
+    if (type) {
+  local_articles = local_articles.filter((article) =>
+    article.type.includes(type)
+  );
+  }
+
+  display_articles(local_articles);
+}
+
+document.addEventListener("change", keep_checkbox);
+
+function keep_checkbox() {
+  const checkbox = document.getElementById("check_saved_articles");
+  ciclo();
+}
+
+
 //CARDS
   function display_articles(articles) {
     const card_articles = articles
       .map((article) => {
-        const button_class = get_button_class(article.type[0]);
+        const button_class = article.type.map((type) => get_button_class(type));
+        const btn = button_class.map ((button_class, i) => {
+          return `<a class="btn btn-disabled ${button_class}">${article.type[i]}</a>`;
+      })
+      .join(" ");
   
         return `
               <div class="card mb-4 p-4" style="width: 100%;">
@@ -92,9 +118,7 @@ const articles = [
                       <img src="./img/${
                         article.image
                       }" class="card-img-top mb-3 rounded" alt="${article.image}">
-                      <a class="btn btn-disabled ${button_class}">${
-          article.type[0]
-        }</a>
+                      ${btn}
                   </div>
               </div>`;
       })
@@ -112,32 +136,23 @@ const articles = [
       art: "btn-yellow",
     };
   
-    return type_class_map[type] || "";
+    return type_class_map[type];
   }
   
   function save_the_article(titolo) {
-    const index = saved_articles.findIndex(
+    const i = saved_articles.findIndex(
       (sav_art) => sav_art.title === titolo
     );
   
-    if (index === -1) {
+    if (i === -1) {
       const article_to_save = articles.find((article) => article.title === titolo);
       saved_articles.push(article_to_save);
     } else {
-      saved_articles.splice(index, 1);
+      saved_articles.splice(i, 1);
     }
   
     ciclo();
   }
   
-  function handle_checkbox_change() {
-    const checkbox = document.getElementById("check_saved_articles");
-  
-    if (checkbox.checked) {
-      display_articles(saved_articles);
-    } else {
-      ciclo();
-    }
-  }
-  
-  ciclo();
+ 
+
