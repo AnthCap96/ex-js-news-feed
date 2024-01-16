@@ -3,7 +3,7 @@ const articles = [
     {
       title: "Scoperta di una nuova specie di papera di gomma",
       author: "Diana Rossi",
-      date: "11/02/2023",
+      date: "2023/02/11",
       description:
         "Un breve articolo sulla recente scoperta di una specie di papera di gomma mai vista prima.",
       image: "rubber-duck.jpg",
@@ -12,7 +12,7 @@ const articles = [
     {
       title: "Esplorando le profondità marine: il mistero degli abissi",
       author: "Fabio Mari",
-      date: "14/03/2023",
+      date: "2023/03/14",
       description:
         "Un viaggio nelle profondità dell'oceano alla scoperta di creature misteriose e inesplorate.",
       image: "deep-sea.jpg",
@@ -21,7 +21,7 @@ const articles = [
     {
       title: "Viaggio culinario: alla ricerca dei sapori perduti",
       author: "Marco Bianchi",
-      date: "20/04/2023",
+      date: "2023/04/20",
       description:
         "Esplorazione di tradizioni culinarie dimenticate e la ricerca di sapori autentici.",
       image: "kitchen-food.jpg",
@@ -30,7 +30,7 @@ const articles = [
     {
       title: "Arte moderna: oltre i confini convenzionali",
       author: "Gabriele Neri",
-      date: "29/05/2023",
+      date: "2023/05/29",
       description:
         "Un'analisi delle tendenze e delle sfide nell'arte contemporanea, con interviste a artisti emergenti.",
       image: "modern-art.jpg",
@@ -38,10 +38,8 @@ const articles = [
     },
   ];
   
- //FUNCIONS
+ //FUNCION TYPE SELECTION
   let saved_articles = [];
-
-  addEventListener("DOMContentLoaded", ciclo)
   
   function ciclo() {
     const type = document.getElementById("selected").value;
@@ -67,7 +65,7 @@ const articles = [
 
   display_articles(local_articles);
 }
-
+//FUNCION CHECKBOX
 addEventListener("change", keep_checkbox);
 
 function keep_checkbox() {
@@ -76,7 +74,7 @@ function keep_checkbox() {
 }
 
 
-//CARDS
+//FUNCION COLORED TYPE
   function display_articles(articles) {
     const card_articles = articles
       .map((article) => {
@@ -85,7 +83,16 @@ function keep_checkbox() {
           return `<a class="btn btn-disabled ${button_class}">${article.type[i]}</a>`;
       })
       .join(" ");
-  
+
+      //DATE FROM US TO ITA
+      const local_date = it_date(article.date)
+
+      function it_date(it_string) {
+        const date = new Date(it_string);
+        return date.toLocaleDateString("it-IT");
+      }
+      
+
         return `
               <div class="card mb-4 p-4" style="width: 100%;">
                   <div class="card-body">
@@ -96,7 +103,7 @@ function keep_checkbox() {
                               </div>
                               <div class="col-2 d-flex justify-content-end button-save">
                                   <button type="button" class="btn btn-save" onclick="save_the_article('${
-                                    article.title
+                                    article.tite
                                   }')">
                                       <i class="fa-2x ${
                                         saved_articles.some(
@@ -112,7 +119,7 @@ function keep_checkbox() {
                       </div>
   
                       <h5 class="card-title">pubblicato da ${article.author}</h5>
-                      <p class="card-title">in data ${article.date}</p>
+                      <p class="card-title">in data ${local_date}</p>
   
                       <p class="card-text">${article.description}</p>
                       <img src="./img/${
@@ -139,13 +146,13 @@ function keep_checkbox() {
     return type_class_map[type];
   }
   
-  function save_the_article(titolo) {
+  function save_the_article(news) {
     const i = saved_articles.findIndex(
-      (sav_art) => sav_art.title === titolo
+      (sav_art) => sav_art.title === news
     );
   
     if (i === -1) {
-      const article_to_save = articles.find((article) => article.title === titolo);
+      const article_to_save = articles.find((article) => article.news === news);
       saved_articles.push(article_to_save);
     } else {
       saved_articles.splice(i, 1);
@@ -153,6 +160,6 @@ function keep_checkbox() {
   
     ciclo();
   }
-  
- 
 
+  ciclo();
+ 
