@@ -34,6 +34,7 @@
     border-color: green;
     color: white;
     cursor: default;
+    text-transform: capitalize;
   }
   
   .btn-blue {
@@ -41,6 +42,7 @@
     border-color: blue;
     color: white;
     cursor: default;
+    text-transform: capitalize;
   }
   
   .btn-purple {
@@ -48,20 +50,23 @@
     border-color: purple;
     color: white;
     cursor: default;
+    text-transform: capitalize;
   }
   .btn-orange {
     background-color: orange;
     border-color: orange;
     color: white;
     cursor: default;
+    text-transform: capitalize;
   }
   .btn-yellow {
     background-color: rgb(216, 216, 2);
     border-color: rgb(216, 216, 2);
     color: white;
     cursor: default;
+    text-transform: capitalize;
   }
-  
+
   .btn-disabled {
     pointer-events: none !important;
     cursor: not-allowed !important;
