@@ -41,7 +41,7 @@ const articles = [
  //FUNCIONS
   let saved_articles = [];
 
-  document.addEventListener("DOMContentLoaded", ciclo)
+  addEventListener("DOMContentLoaded", ciclo)
   
   function ciclo() {
     const type = document.getElementById("selected").value;
@@ -68,7 +68,7 @@ const articles = [
   display_articles(local_articles);
 }
 
-document.addEventListener("change", keep_checkbox);
+addEventListener("change", keep_checkbox);
 
 function keep_checkbox() {
   const checkbox = document.getElementById("check_saved_articles");
