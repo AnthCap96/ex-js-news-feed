@@ -103,7 +103,7 @@ function keep_checkbox() {
                               </div>
                               <div class="col-2 d-flex justify-content-end button-save">
                                   <button type="button" class="btn btn-save" onclick="save_the_article('${
-                                    article.tite
+                                    article.title
                                   }')">
                                       <i class="fa-2x ${
                                         saved_articles.some(
@@ -152,7 +152,7 @@ function keep_checkbox() {
     );
   
     if (i === -1) {
-      const article_to_save = articles.find((article) => article.news === news);
+      const article_to_save = articles.find((article) => article.title === news);
       saved_articles.push(article_to_save);
     } else {
       saved_articles.splice(i, 1);
